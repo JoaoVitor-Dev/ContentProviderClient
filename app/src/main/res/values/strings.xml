@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">JoaoVitor_atividade06_cliente</string>
+    <string name="novo_aluno">+ Novo aluno</string>
+    <string name="alunos_cadastrados">Alunos cadastrados</string>
+    <string name="cadastro_de_aluno">Cadastro de Aluno</string>
+    <string name="nome">Nome</string>
+    <string name="idade">Idade</string>
+    <string name="nota_1">Nota 1</string>
+    <string name="nota_2">Nota 2</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="voltar">Voltar</string>
+    <string name="deletar">Deletar</string>
+</resources>
