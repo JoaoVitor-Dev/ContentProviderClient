@@ -20,7 +20,6 @@ public class CadastroAluno extends AppCompatActivity
     private TextInputEditText edtnome, edtidade, edtnota1, edtnota2;
     private AlunoRepository repository;
     private Aluno alunoRecebido;
-    private static final int PERMISSAO_READ_REQUEST_CODE = 1;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)

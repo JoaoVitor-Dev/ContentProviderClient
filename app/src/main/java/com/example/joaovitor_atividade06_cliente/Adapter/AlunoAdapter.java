@@ -10,9 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import android.widget.Toast;
 import com.example.joaovitor_atividade06_cliente.CadastroAluno;
 import com.example.joaovitor_atividade06_cliente.Model.Aluno;
 import com.example.joaovitor_atividade06_cliente.R;
+import com.example.joaovitor_atividade06_cliente.Repository.AlunoRepository;
 
 import java.util.List;
 
@@ -20,11 +22,13 @@ public class AlunoAdapter extends BaseAdapter
 {
     private LayoutInflater inflater;
     private List<Aluno> alunos;
+    private AlunoRepository repository;
 
-    public AlunoAdapter(LayoutInflater inflater, List<Aluno> alunos)
+    public AlunoAdapter(LayoutInflater inflater, List<Aluno> alunos, AlunoRepository repository)
     {
         this.inflater = inflater;
         this.alunos = alunos;
+        this.repository = repository;
     }
 
     @Override
@@ -63,9 +67,11 @@ public class AlunoAdapter extends BaseAdapter
         nota1.setText(aluno.getNota1().toString());
         nota2.setText(aluno.getNota2().toString());
 
-        btnEditar.setOnClickListener(new View.OnClickListener() {
+        btnEditar.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Intent intent = new Intent(inflater.getContext(), CadastroAluno.class);
                 intent.putExtra("aluno", aluno);
                 inflater.getContext().startActivity(intent);

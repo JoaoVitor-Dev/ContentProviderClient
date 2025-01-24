@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (alunos != null){
-            adapter = new AlunoAdapter(getLayoutInflater(), alunos);
+            adapter = new AlunoAdapter(getLayoutInflater(), alunos, repository);
             listView.setAdapter(adapter);
         }
     }
