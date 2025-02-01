@@ -1,4 +1,4 @@
-package com.example.joaovitor_atividade06_cliente;
+package com.example.joaovitor_atividade06_cliente.View;
 
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -11,12 +11,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.joaovitor_atividade06_cliente.Model.Aluno;
+import com.example.joaovitor_atividade06_cliente.R;
 import com.example.joaovitor_atividade06_cliente.Repository.AlunoRepository;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class CadastroAluno extends AppCompatActivity
 {
-    private Button btnCadastrar, btnVoltar, btnDeletar;
+    private Button btnCadastrar, btnVoltar;
     private TextInputEditText edtnome, edtidade, edtnota1, edtnota2;
     private AlunoRepository repository;
     private Aluno alunoRecebido;
@@ -36,7 +37,7 @@ public class CadastroAluno extends AppCompatActivity
 
         if (alunoRecebido != null) {
             preencherDados(alunoRecebido);
-            definirModoDeEdicao();
+            definirModoDeVisualizacao();
         }
 
         btnCadastrar.setOnClickListener(new View.OnClickListener()
@@ -56,20 +57,12 @@ public class CadastroAluno extends AppCompatActivity
                voltarParaMain();
             }
         });
-
-        btnDeletar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                deletar();
-            }
-        });
     }
 
     private void setup()
     {
         btnCadastrar = findViewById(R.id.btnCadastrar);
         btnVoltar = findViewById(R.id.btnVoltar);
-        btnDeletar = findViewById(R.id.btnDeletar);
         edtnome = findViewById(R.id.nome);
         edtidade = findViewById(R.id.idade);
         edtnota1 = findViewById(R.id.nota1);
@@ -141,16 +134,9 @@ public class CadastroAluno extends AppCompatActivity
         edtnota2.setText(String.valueOf(aluno.getNota2()).toString());
     }
 
-    private void definirModoDeEdicao()
+    private void definirModoDeVisualizacao()
     {
-        btnCadastrar.setText("Salvar");
-        btnDeletar.setVisibility(View.VISIBLE);
+        btnCadastrar.setVisibility(View.INVISIBLE);
     }
 
-    private void deletar()
-    {
-        repository.excluir(alunoRecebido.getId());
-        Toast.makeText(this, "Aluno excluído", Toast.LENGTH_SHORT).show();
-        voltarParaMain();
-    }
 }

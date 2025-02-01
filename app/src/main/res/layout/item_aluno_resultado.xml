@@ -16,6 +16,7 @@
             app:cardCornerRadius="5dp">
 
         <LinearLayout
+                android:layout_margin="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -40,19 +41,11 @@
                             android:textSize="15sp"
                             />
 
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Idade:"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            />
-
 
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nota 1:"
+                            android:text="Média:"
                             android:textSize="15sp"
                             android:textStyle="bold"
                             />
@@ -61,7 +54,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="15sp"
-                            android:text="Nota 2:"
+                            android:text="Status:"
                             android:textStyle="bold"
                             />
                 </LinearLayout>
@@ -81,16 +74,10 @@
                             android:textSize="15sp"
                             />
 
-                    <TextView
-                            android:id="@+id/idade"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="10"
-                            android:textSize="15sp"
-                            />
+
 
                     <TextView
-                            android:id="@+id/nota1"
+                            android:id="@+id/media"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0.0"
@@ -98,19 +85,14 @@
                             />
 
                     <TextView
-                            android:id="@+id/nota2"
+                            android:id="@+id/status"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0.0"
-
+                            android:text="Aprovado"
                             android:textSize="15sp"
                             />
-
                 </LinearLayout>
-
-
             </LinearLayout>
-
             <LinearLayout
                     android:layout_margin="3dp"
                     android:layout_width="wrap_content"
@@ -118,7 +100,7 @@
                     android:orientation="vertical">
 
                 <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnEditar"
+                        android:id="@+id/btnVer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ver"

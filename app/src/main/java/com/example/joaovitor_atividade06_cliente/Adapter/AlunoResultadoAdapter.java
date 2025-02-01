@@ -7,21 +7,20 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.example.joaovitor_atividade06_cliente.View.CadastroAluno;
 import com.example.joaovitor_atividade06_cliente.Model.Aluno;
 import com.example.joaovitor_atividade06_cliente.R;
 import com.example.joaovitor_atividade06_cliente.Repository.AlunoRepository;
+import com.example.joaovitor_atividade06_cliente.View.CadastroAluno;
 
 import java.util.List;
 
-public class AlunoAdapter extends BaseAdapter
+public class AlunoResultadoAdapter extends BaseAdapter
 {
     private LayoutInflater inflater;
     private List<Aluno> alunos;
     private AlunoRepository repository;
 
-    public AlunoAdapter(LayoutInflater inflater, List<Aluno> alunos, AlunoRepository repository)
+    public AlunoResultadoAdapter(LayoutInflater inflater, List<Aluno> alunos, AlunoRepository repository)
     {
         this.inflater = inflater;
         this.alunos = alunos;
@@ -35,36 +34,41 @@ public class AlunoAdapter extends BaseAdapter
     }
 
     @Override
-    public Object getItem(int position)
+    public Object getItem(int i)
     {
-        return alunos.get(position);
+        return alunos.get(i);
     }
 
     @Override
-    public long getItemId(int position)
+    public long getItemId(int i)
     {
-        return position;
+        return i;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)
+    public View getView(int i, View view, ViewGroup viewGroup)
     {
-        Aluno aluno = alunos.get(position);
+        Aluno aluno = alunos.get(i);
 
-        convertView = inflater.inflate(R.layout.item_aluno, null);
+        view = inflater.inflate(R.layout.item_aluno_resultado, null);
 
-        TextView nome = convertView.findViewById(R.id.Nome);
-        TextView idade = convertView.findViewById(R.id.idade);
-        TextView nota1 = convertView.findViewById(R.id.nota1);
-        TextView nota2 = convertView.findViewById(R.id.nota2);
-        Button btnEditar = convertView.findViewById(R.id.btnEditar);
+        TextView nome = view.findViewById(R.id.Nome);
+        TextView media = view.findViewById(R.id.media);
+        TextView status = view.findViewById(R.id.status);
+        Button btnVer = view.findViewById(R.id.btnVer);
+
+        Double _media = (aluno.getNota1() + aluno.getNota2()) / 2;
 
         nome.setText(aluno.getNome().toString().toUpperCase());
-        idade.setText(String.valueOf(aluno.getIdade()).toString());
-        nota1.setText(aluno.getNota1().toString());
-        nota2.setText(aluno.getNota2().toString());
+        media.setText(String.valueOf(_media));
 
-        btnEditar.setOnClickListener(new View.OnClickListener()
+        if (_media < 6){
+            status.setText("Reprovado");
+        }else {
+            status.setText("Aprovado");
+        }
+
+        btnVer.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -75,6 +79,6 @@ public class AlunoAdapter extends BaseAdapter
             }
         });
 
-        return convertView;
+        return view;
     }
 }

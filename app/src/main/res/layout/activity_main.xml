@@ -7,31 +7,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/gray"
-        tools:context=".MainActivity">
+        tools:context=".View.MainActivity">
 
-    <TextView
-            android:layout_margin="10dp"
-            android:textSize="25sp"
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/alunos_cadastrados"
-            />
+            android:layout_height="wrap_content">
 
-    <Button
-            android:id="@+id/btnNovo"
+        <com.google.android.material.tabs.TabItem
+                android:text="Alunos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <com.google.android.material.tabs.TabItem
+                android:text="Resultados"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/gray"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="@string/novo_aluno"
-            android:layout_height="wrap_content"/>
-
-    <ListView
-            android:id="@+id/listaAlunos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-
+            android:layout_height="match_parent"/>
 </LinearLayout>
